@@ -11,9 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
 import org.jboss.logging.Logger;
-
 import io.quarkiverse.githubaction.Commands;
 import io.quarkiverse.githubaction.runtime.github.EnvFiles;
 
@@ -25,6 +23,7 @@ public class CommandsImpl implements Commands {
     private static final Logger LOG = Logger.getLogger(CommandsImpl.class);
 
     private Map<String, String> env;
+
     private String currentStopCommandsMarker;
 
     public CommandsImpl(Map<String, String> env) {
@@ -33,132 +32,117 @@ public class CommandsImpl implements Commands {
 
     @Override
     public void setOutput(String name, String value) {
-        appendEnvFile(EnvFiles.GITHUB_OUTPUT, name, value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void debug(String message) {
-        command("::debug::" + message);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void notice(String message) {
-        notice(message, null, null, null, null, null, null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public void notice(String message, String title, String file, Integer line, Integer endLine, Integer col,
-            Integer endColumn) {
-        message("notice", message, title, file, line, endLine, col, endColumn);
+    public void notice(String message, String title, String file, Integer line, Integer endLine, Integer col, Integer endColumn) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void warning(String message) {
-        warning(message, null, null, null, null, null, null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public void warning(String message, String title, String file, Integer line, Integer endLine, Integer col,
-            Integer endColumn) {
-        message("warning", message, title, file, line, endLine, col, endColumn);
+    public void warning(String message, String title, String file, Integer line, Integer endLine, Integer col, Integer endColumn) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void error(String message) {
-        error(message, null, null, null, null, null, null);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
-    public void error(String message, String title, String file, Integer line, Integer endLine, Integer col,
-            Integer endColumn) {
-        message("error", message, title, file, line, endLine, col, endColumn);
+    public void error(String message, String title, String file, Integer line, Integer endLine, Integer col, Integer endColumn) {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void group(String title) {
-        command("::group::" + title);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void echo(String message) {
-        command(message);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void endGroup() {
-        command("::endgroup::");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void addMask(String value) {
-        command("::add-mask::" + value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void stopCommands() {
-        this.currentStopCommandsMarker = "stopCommandsMarker-" + UUID.randomUUID();
-        command("::stop-commands::" + this.currentStopCommandsMarker);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void pursueCommands() {
-        if (this.currentStopCommandsMarker == null) {
-            throw new IllegalStateException("Cannot pursue commands if no stop commands marker is defined");
-        }
-
-        command("::" + this.currentStopCommandsMarker + "::");
-        this.currentStopCommandsMarker = null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void echoOn() {
-        command("::echo::on");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void echoOff() {
-        command("::echo::off");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void saveState(String name, String value) {
-        appendEnvFile(EnvFiles.GITHUB_STATE, name, value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void environmentVariable(String name, String value) {
-        appendEnvFile(EnvFiles.GITHUB_ENV, name, value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void jobSummary(String markdownContent) {
-        writeEnvFile(EnvFiles.GITHUB_STEP_SUMMARY, markdownContent);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void appendJobSummary(String markdownContent) {
-        appendEnvFile(EnvFiles.GITHUB_STEP_SUMMARY, markdownContent);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void removeJobSummary() {
-        try {
-            Files.deleteIfExists(getEnvFilePath(EnvFiles.GITHUB_STEP_SUMMARY));
-        } catch (IOException e) {
-            throw new IllegalStateException("Unable to delete job summary", e);
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void systemPath(String path) {
-        appendEnvFile(EnvFiles.GITHUB_PATH, path);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    private void message(String level, String message, String title, String file, Integer line, Integer endLine, Integer col,
-            Integer endColumn) {
+    private void message(String level, String message, String title, String file, Integer line, Integer endLine, Integer col, Integer endColumn) {
         StringBuilder command = new StringBuilder();
         command.append("::" + level);
-
         Map<String, String> parameters = new LinkedHashMap<>();
         if (file != null && !file.isBlank()) {
             parameters.put("file", file);
@@ -178,13 +162,9 @@ public class CommandsImpl implements Commands {
         if (title != null && !title.isBlank()) {
             parameters.put("title", title);
         }
-
-        command.append(parameters.keySet().stream()
-                .map(key -> key + "=" + parameters.get(key))
-                .collect(Collectors.joining(",", " ", "")));
+        command.append(parameters.keySet().stream().map(key -> key + "=" + parameters.get(key)).collect(Collectors.joining(",", " ", "")));
         command.append("::");
         command.append(message);
-
         command(command.toString());
     }
 
@@ -202,10 +182,8 @@ public class CommandsImpl implements Commands {
 
     private void writeEnvFile(String fileName, String content, OpenOption... openOptions) {
         Path path = getEnvFilePath(fileName);
-
         try {
             Files.writeString(path, content + "\n", openOptions);
-
             LOG.debugf("Wrote %s in environment file %s", content, path);
         } catch (IOException e) {
             throw new UncheckedIOException("Unable to write content to file " + fileName + " at path " + path, e);
@@ -214,11 +192,9 @@ public class CommandsImpl implements Commands {
 
     private Path getEnvFilePath(String fileName) {
         String envFileName = env.get(fileName);
-
         if (envFileName == null || envFileName.isBlank()) {
             throw new IllegalStateException("No path defined for environment file " + fileName);
         }
-
         Path path = Paths.get(envFileName);
         return path;
     }
@@ -227,7 +203,6 @@ public class CommandsImpl implements Commands {
         if (value.contains("\n")) {
             return name + "<<EOF\n" + value + "\nEOF";
         }
-
         return name + "=" + value;
     }
 }

@@ -1,13 +1,11 @@
 package io.quarkiverse.githubaction.deployment;
 
 import java.util.Set;
-
 import org.jboss.jandex.AnnotationInstance;
 import org.jboss.jandex.AnnotationTarget;
 import org.jboss.jandex.AnnotationTarget.Kind;
 import org.jboss.jandex.AnnotationTransformation;
 import org.jboss.jandex.DotName;
-
 import io.quarkus.arc.processor.DotNames;
 
 class VetoUserDefinedEventListeningClassesAnnotationsTransformer implements AnnotationTransformation {
@@ -20,38 +18,15 @@ class VetoUserDefinedEventListeningClassesAnnotationsTransformer implements Anno
 
     @Override
     public boolean supports(AnnotationTarget.Kind kind) {
-        return Kind.CLASS.equals(kind);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void apply(TransformationContext transformationContext) {
-        if (transformationContext.hasAnnotation(GitHubActionDotNames.MULTIPLEXER)) {
-            return;
-        }
-
-        if (transformationContext.hasAnnotation(GitHubActionDotNames.ACTION)) {
-            transformationContext.add(AnnotationInstance.builder(DotNames.VETOED).build());
-            return;
-        }
-
-        if (isEventListeningClass(transformationContext)) {
-            transformationContext.add(AnnotationInstance.builder(DotNames.VETOED).build());
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public boolean isEventListeningClass(TransformationContext transformationContext) {
-        if (transformationContext.hasAnnotation(GitHubActionDotNames.RAW_EVENT)) {
-            return true;
-        }
-
-        for (DotName eventDefiningAnnotation : eventDefinitionAnnotations) {
-            if (!transformationContext.hasAnnotation(eventDefiningAnnotation)) {
-                continue;
-            }
-
-            return true;
-        }
-
-        return false;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

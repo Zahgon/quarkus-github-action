@@ -11,52 +11,33 @@ import java.util.OptionalLong;
 public interface Inputs {
 
     String ACTION = "action";
+
     String GITHUB_TOKEN = "github-token";
 
     Map<String, String> all();
 
     default Optional<String> get(String key) {
-        String value = all().get(key);
-
-        if (value == null || value.isEmpty()) {
-            return Optional.empty();
-        }
-
-        return Optional.of(value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     default String getRequired(String key) {
-        return get(key).orElseThrow(() -> new IllegalStateException("Input " + key + " is required and has not been provided"));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     default Optional<Boolean> getBoolean(String key) {
-        String value = all().get(key);
-
-        if (value == null || value.isBlank()) {
-            return Optional.empty();
-        }
-
-        return Optional.of(Boolean.parseBoolean(value));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     default boolean getRequiredBoolean(String key) {
-        return getBoolean(key)
-                .orElseThrow(() -> new IllegalStateException("Input " + key + " is required and has not been provided"));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     default OptionalLong getLong(String key) {
-        String value = all().get(key);
-
-        if (value == null || value.isBlank()) {
-            return OptionalLong.empty();
-        }
-
-        return OptionalLong.of(Long.valueOf(value));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     default long getRequiredLong(String key) {
-        return getLong(key)
-                .orElseThrow(() -> new IllegalStateException("Input " + key + " is required and has not been provided"));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Deprecated(forRemoval = true)
@@ -65,31 +46,18 @@ public interface Inputs {
     }
 
     default OptionalInt getInt(String key) {
-        String value = all().get(key);
-
-        if (value == null || value.isBlank()) {
-            return OptionalInt.empty();
-        }
-
-        return OptionalInt.of(Integer.valueOf(value));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     default int getRequiredInt(String key) {
-        return getInt(key)
-                .orElseThrow(() -> new IllegalStateException("Input " + key + " is required and has not been provided"));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     default String getAction() {
-        String action = all().get(ACTION);
-
-        if (action == null || action.isBlank()) {
-            return Action.UNNAMED;
-        }
-
-        return action;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     default Optional<String> getGitHubToken() {
-        return get(GITHUB_TOKEN);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

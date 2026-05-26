@@ -1,13 +1,9 @@
 package io.quarkiverse.githubaction.runtime;
 
 import java.io.File;
-
 import jakarta.inject.Inject;
-
 import org.jboss.logging.Logger;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import io.quarkiverse.githubaction.Commands;
 import io.quarkiverse.githubaction.CommandsInitializer;
 import io.quarkiverse.githubaction.Context;
@@ -43,23 +39,7 @@ public class ActionMain implements QuarkusApplication {
 
     @Override
     public int run(String... args) throws Exception {
-        try {
-            Context context = contextInitializer.createContext();
-            Inputs inputs = inputsInitializer.createInputs();
-            Commands commands = commandsInitializer.createCommands();
-
-            GitHubEvent gitHubEvent = new GitHubEvent(inputs.getAction(), context,
-                    getEventAction(context),
-                    inputs, commands,
-                    payloadTypeResolver.getPayloadType(context.getGitHubEventName()));
-
-            gitHubEventHandler.handle(gitHubEvent);
-
-            return 0;
-        } catch (Exception e) {
-            LOG.error("An error occured while executing the action", e);
-            return 1;
-        }
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private String getEventAction(Context context) {
@@ -81,7 +61,7 @@ public class ActionMain implements QuarkusApplication {
         private String action;
 
         public String getAction() {
-            return action;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

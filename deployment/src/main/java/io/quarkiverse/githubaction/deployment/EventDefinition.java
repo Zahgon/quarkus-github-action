@@ -22,18 +22,18 @@ class EventDefinition {
     }
 
     DotName getAnnotation() {
-        return annotation;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     String getEvent() {
-        return event;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     String getAction() {
-        return action;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public DotName getPayloadType() {
-        return payloadType;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

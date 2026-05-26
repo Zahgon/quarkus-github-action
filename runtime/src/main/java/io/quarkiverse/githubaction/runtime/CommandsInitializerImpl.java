@@ -1,7 +1,6 @@
 package io.quarkiverse.githubaction.runtime;
 
 import jakarta.inject.Singleton;
-
 import io.quarkiverse.githubaction.Commands;
 import io.quarkiverse.githubaction.CommandsInitializer;
 
@@ -10,6 +9,6 @@ public class CommandsInitializerImpl implements CommandsInitializer {
 
     @Override
     public Commands createCommands() {
-        return new CommandsImpl(System.getenv());
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

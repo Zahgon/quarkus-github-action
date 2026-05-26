@@ -5,46 +5,87 @@ import io.quarkiverse.githubaction.Context;
 class ContextImpl implements Context {
 
     private final String home;
+
     private final String gitHubAction;
+
     private final String gitHubActionPath;
+
     private final String gitHubActor;
+
     private final String gitHubActorId;
+
     private final String gitHubApiUrl;
+
     private final String gitHubBaseRef;
+
     private final String gitHubEnv;
+
     private final String gitHubEventName;
+
     private final String gitHubEventPath;
+
     private final String githubGraphQLUrl;
+
     private final String gitHubHeadRef;
+
     private final String gitHubJob;
+
     private final String gitHubOutput;
+
     private final String gitHubPath;
+
     private final String gitHubRef;
+
     private final String gitHubRefName;
+
     private final String gitHubRefProtected;
+
     private final String gitHubRefType;
+
     private final String gitHubRepository;
+
     private final String gitHubRepositoryId;
+
     private final String gitHubRepositoryOwner;
+
     private final String gitHubRepositoryOwnerId;
+
     private final String gitHubRetentionDays;
+
     private final String gitHubRunAttempt;
+
     private final String gitHubRunId;
+
     private final String gitHubRunNumber;
+
     private final String gitHubServerUrl;
+
     private final String gitHubSha;
+
     private final String gitHubStepSummary;
+
     private final String gitHubTriggeringActor;
+
     private final String gitHubWorkflow;
+
     private final String gitHubWorkflowRef;
+
     private final String gitHubWorkflowSha;
+
     private final String gitHubWorkspace;
+
     private final String runnerArch;
+
     private final String runnerDebug;
+
     private final String runnerName;
+
     private final String runnerOs;
+
     private final String runnerTemp;
+
     private final String runnerToolCache;
+
     private final String runnerWorkspace;
 
     ContextImpl() {
@@ -94,260 +135,216 @@ class ContextImpl implements Context {
 
     @Override
     public String getHome() {
-        return home;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubAction() {
-        return gitHubAction;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubActionPath() {
-        return gitHubActionPath;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubActor() {
-        return gitHubActor;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Long getGitHubActorId() {
-        return gitHubActorId != null && !gitHubActorId.isBlank() ? Long.valueOf(gitHubActorId) : null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubApiUrl() {
-        return gitHubApiUrl;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubBaseRef() {
-        return gitHubBaseRef;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubEnv() {
-        return gitHubEnv;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubEventName() {
-        return gitHubEventName;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubEventPath() {
-        return gitHubEventPath;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGithubGraphQLUrl() {
-        return githubGraphQLUrl;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubHeadRef() {
-        return gitHubHeadRef;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubJob() {
-        return gitHubJob;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubOutput() {
-        return gitHubOutput;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubPath() {
-        return gitHubPath;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubRef() {
-        return gitHubRef;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubRefName() {
-        return gitHubRefName;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public boolean isGitHubRefProtected() {
-        return "true".equalsIgnoreCase(gitHubRefProtected);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubRefType() {
-        return gitHubRefType;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubRepository() {
-        return gitHubRepository;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Long getGitHubRepositoryId() {
-        return gitHubRepositoryId != null && !gitHubRepositoryId.isBlank() ? Long.valueOf(gitHubRepositoryId) : null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubRepositoryOwner() {
-        return gitHubRepositoryOwner;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Long getGitHubRepositoryOwnerId() {
-        return gitHubRepositoryOwnerId != null && !gitHubRepositoryOwnerId.isBlank() ? Long.valueOf(gitHubRepositoryOwnerId)
-                : null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Integer getGitHubRetentionDays() {
-        return gitHubRetentionDays != null && !gitHubRetentionDays.isBlank() ? Integer.valueOf(gitHubRetentionDays) : null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Integer getGitHubRunAttempt() {
-        return gitHubRunAttempt != null && !gitHubRunAttempt.isBlank() ? Integer.valueOf(gitHubRunAttempt) : null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Long getGitHubRunId() {
-        return gitHubRunId != null && !gitHubRunId.isBlank() ? Long.valueOf(gitHubRunId) : null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public Long getGitHubRunNumber() {
-        return gitHubRunNumber != null && !gitHubRunNumber.isBlank() ? Long.valueOf(gitHubRunNumber) : null;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubServerUrl() {
-        return gitHubServerUrl;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubSha() {
-        return gitHubSha;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubStepSummary() {
-        return gitHubStepSummary;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubTriggeringActor() {
-        return gitHubTriggeringActor;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubWorkflow() {
-        return gitHubWorkflow;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubWorkflowRef() {
-        return gitHubWorkflowRef;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubWorkflowSha() {
-        return gitHubWorkflowSha;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getGitHubWorkspace() {
-        return gitHubWorkspace;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getRunnerArch() {
-        return runnerArch;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getRunnerDebug() {
-        return runnerDebug;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getRunnerName() {
-        return runnerName;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getRunnerOs() {
-        return runnerOs;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getRunnerTemp() {
-        return runnerTemp;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getRunnerToolCache() {
-        return runnerToolCache;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public String getRunnerWorkspace() {
-        return runnerWorkspace;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @Override
     public void print() {
-        System.out.println("========= Context =========");
-        System.out.println("home: " + home);
-        System.out.println("gitHubAction: " + gitHubAction);
-        System.out.println("gitHubActionPath: " + gitHubActionPath);
-        System.out.println("gitHubActor: " + gitHubActor);
-        System.out.println("gitHubActorId: " + gitHubActorId);
-        System.out.println("gitHubApiUrl: " + gitHubApiUrl);
-        System.out.println("gitHubBaseRef: " + gitHubBaseRef);
-        System.out.println("gitHubEnv: " + gitHubEnv);
-        System.out.println("gitHubEventName: " + gitHubEventName);
-        System.out.println("gitHubEventPath: " + gitHubEventPath);
-        System.out.println("githubGraphQLUrl: " + githubGraphQLUrl);
-        System.out.println("gitHubHeadRef: " + gitHubHeadRef);
-        System.out.println("gitHubJob: " + gitHubJob);
-        System.out.println("gitHubOutput: " + gitHubOutput);
-        System.out.println("gitHubPath: " + gitHubPath);
-        System.out.println("gitHubRef: " + gitHubRef);
-        System.out.println("gitHubRefName: " + gitHubRefName);
-        System.out.println("gitHubRefProtected: " + gitHubRefProtected);
-        System.out.println("gitHubRefType: " + gitHubRefType);
-        System.out.println("gitHubRepository: " + gitHubRepository);
-        System.out.println("gitHubRepositoryId: " + gitHubRepositoryId);
-        System.out.println("gitHubRepositoryOwner: " + gitHubRepositoryOwner);
-        System.out.println("gitHubRepositoryOwnerId: " + gitHubRepositoryOwnerId);
-        System.out.println("gitHubRetentionDays: " + gitHubRetentionDays);
-        System.out.println("gitHubRunAttempt: " + gitHubRunAttempt);
-        System.out.println("gitHubRunId: " + gitHubRunId);
-        System.out.println("gitHubRunNumber: " + gitHubRunNumber);
-        System.out.println("gitHubServerUrl: " + gitHubServerUrl);
-        System.out.println("gitHubSha: " + gitHubSha);
-        System.out.println("gitHubStepSummary: " + gitHubStepSummary);
-        System.out.println("gitHubTriggeringActor: " + gitHubTriggeringActor);
-        System.out.println("gitHubWorkflow: " + gitHubWorkflow);
-        System.out.println("gitHubWorkflowRef: " + gitHubWorkflowRef);
-        System.out.println("gitHubWorkflowSha: " + gitHubWorkflowSha);
-        System.out.println("gitHubWorkspace: " + gitHubWorkspace);
-        System.out.println("runnerArch: " + runnerArch);
-        System.out.println("runnerDebug: " + runnerDebug);
-        System.out.println("runnerName: " + runnerName);
-        System.out.println("runnerOs: " + runnerOs);
-        System.out.println("runnerTemp: " + runnerTemp);
-        System.out.println("runnerToolCache: " + runnerToolCache);
-        System.out.println("runnerWorkspace: " + runnerWorkspace);
-        System.out.println("===========================");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

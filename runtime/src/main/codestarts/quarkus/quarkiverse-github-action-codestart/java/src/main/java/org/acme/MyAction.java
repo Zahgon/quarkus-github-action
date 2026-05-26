@@ -7,8 +7,6 @@ public class MyAction {
 
     @Action
     void action(Commands commands) {
-        commands.notice("Hello from Quarkus GitHub Action");
-
-        commands.appendJobSummary(":wave: Hello from Quarkus GitHub Action");
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

@@ -2,9 +2,7 @@ package io.quarkiverse.githubaction.runtime;
 
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import io.quarkiverse.githubaction.Inputs;
 import io.quarkiverse.githubaction.InputsInitializer;
 
@@ -16,6 +14,6 @@ public class InputsInitializerImpl implements InputsInitializer {
 
     @Override
     public Inputs createInputs() {
-        return new InputsImpl(objectMapper);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 }

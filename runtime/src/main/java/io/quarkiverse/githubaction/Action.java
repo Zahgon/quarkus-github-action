@@ -3,11 +3,9 @@ package io.quarkiverse.githubaction;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
-
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-
 import jakarta.enterprise.util.AnnotationLiteral;
 import jakarta.inject.Qualifier;
 
@@ -38,7 +36,7 @@ public @interface Action {
 
         @Override
         public String value() {
-            return value;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

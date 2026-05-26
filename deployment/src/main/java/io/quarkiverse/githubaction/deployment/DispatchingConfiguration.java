@@ -9,7 +9,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-
 import org.jboss.jandex.AnnotationInstance;
 import org.jboss.jandex.AnnotationValue;
 import org.jboss.jandex.DotName;
@@ -28,28 +27,23 @@ class DispatchingConfiguration {
     private final Map<DotName, TreeSet<ActionDispatchingMethod>> methods = new TreeMap<>();
 
     Map<String, Map<String, ActionDispatchingConfiguration>> getActionConfigurations() {
-        return actionConfigurations;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     ActionDispatchingConfiguration getOrCreateActionConfiguration(String action, String event, String payloadType) {
-        return actionConfigurations
-                .computeIfAbsent(action, a -> new HashMap<>())
-                .computeIfAbsent(event, et -> new ActionDispatchingConfiguration(event, payloadType));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     Map<DotName, TreeSet<ActionDispatchingMethod>> getMethods() {
-        return methods;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     List<ActionDispatchingConfiguration> getActionDispatchingConfigurations() {
-        return actionConfigurations.values().stream()
-                .flatMap(innerMap -> innerMap.values().stream())
-                .toList();
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     void addActionDispatchingMethod(ActionDispatchingMethod actionDispatchingMethod) {
-        methods.computeIfAbsent(actionDispatchingMethod.getMethod().declaringClass().name(), k -> new TreeSet<>())
-                .add(actionDispatchingMethod);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     static class ActionDispatchingConfiguration {
@@ -66,30 +60,23 @@ class DispatchingConfiguration {
         }
 
         String getEvent() {
-            return event;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         String getPayloadType() {
-            return payloadType;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         TreeMap<String, EventAnnotation> getEventAnnotations() {
-            return eventAnnotations;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         Set<EventAnnotationLiteral> getEventAnnotationLiterals() {
-            Set<EventAnnotationLiteral> literals = new HashSet<>();
-            for (EventAnnotation eventAnnotation : eventAnnotations.values()) {
-                literals.add(new EventAnnotationLiteral(eventAnnotation.getName(),
-                        eventAnnotation.getValues().stream().map(av -> av.name()).collect(Collectors.toList())));
-            }
-            return literals;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
-        ActionDispatchingConfiguration addEventAnnotation(String action, AnnotationInstance annotationInstance,
-                List<AnnotationValue> annotationValues) {
-            eventAnnotations.put(action, new EventAnnotation(annotationInstance.name(), annotationValues));
-            return this;
+        ActionDispatchingConfiguration addEventAnnotation(String action, AnnotationInstance annotationInstance, List<AnnotationValue> annotationValues) {
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -105,32 +92,16 @@ class DispatchingConfiguration {
         }
 
         DotName getName() {
-            return name;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         List<AnnotationValue> getValues() {
-            return values;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public int compareTo(EventAnnotation other) {
-            int nameCompareTo = name.compareTo(other.name);
-            if (nameCompareTo != 0) {
-                return nameCompareTo;
-            }
-            int valuesLengthCompare = Integer.compare(values.size(), other.values.size());
-            if (valuesLengthCompare != 0) {
-                return valuesLengthCompare;
-            }
-            for (int i = 0; i < values.size(); i++) {
-                // we only support string for now, we can adjust later
-                int valueCompare = values.get(i).asString().compareTo(other.values.get(i).asString());
-                if (valueCompare != 0) {
-                    return valueCompare;
-                }
-            }
-
-            return 0;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -147,33 +118,21 @@ class DispatchingConfiguration {
         }
 
         DotName getName() {
-            return name;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         List<String> getAttributes() {
-            return attributes;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public boolean equals(Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null) {
-                return false;
-            }
-            if (getClass() != obj.getClass()) {
-                return false;
-            }
-            EventAnnotationLiteral other = (EventAnnotationLiteral) obj;
-
-            return Objects.equals(name, other.name) &&
-                    Objects.equals(attributes, other.attributes);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(name, attributes);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 
@@ -185,47 +144,27 @@ class DispatchingConfiguration {
 
         private final MethodInfo method;
 
-        ActionDispatchingMethod(String name, AnnotationInstance eventSubscriberInstance,
-                MethodInfo method) {
+        ActionDispatchingMethod(String name, AnnotationInstance eventSubscriberInstance, MethodInfo method) {
             this.name = name;
             this.eventSubscriberInstance = eventSubscriberInstance;
             this.method = method;
         }
 
         String getName() {
-            return name;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         AnnotationInstance getEventSubscriberInstance() {
-            return eventSubscriberInstance;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         MethodInfo getMethod() {
-            return method;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @Override
         public int compareTo(ActionDispatchingMethod other) {
-            int classNameCompareTo = method.declaringClass().name().compareTo(other.method.declaringClass().name());
-            if (classNameCompareTo != 0) {
-                return classNameCompareTo;
-            }
-
-            int methodNameComparator = method.toString().compareTo(other.method.toString());
-            if (methodNameComparator != 0) {
-                return methodNameComparator;
-            }
-
-            int nameComparator = name.compareTo(other.name);
-            if (nameComparator != 0) {
-                return nameComparator;
-            }
-
-            if (eventSubscriberInstance != null) {
-                return eventSubscriberInstance.toString(false).compareTo(other.eventSubscriberInstance.toString(false));
-            }
-
-            return 0;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
     }
 }

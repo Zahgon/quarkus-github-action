@@ -5,14 +5,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
-
 import org.kohsuke.github.GitHub;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import io.quarkiverse.githubaction.GitHubFileDownloader;
 import io.quarkiverse.githubaction.runtime.UtilsProducer.Yaml;
 
@@ -20,11 +16,15 @@ import io.quarkiverse.githubaction.runtime.UtilsProducer.Yaml;
 public class ConfigFileReader {
 
     private static final List<String> YAML_EXTENSIONS = Arrays.asList(".yml", ".yaml");
+
     private static final List<String> JSON_EXTENSIONS = Collections.singletonList(".json");
+
     private static final List<String> TEXT_EXTENSIONS = Collections.singletonList(".txt");
 
     private static final String DEFAULT_DIRECTORY = ".github/";
+
     private static final String PARENT_DIRECTORY = "..";
+
     private static final String ROOT_DIRECTORY = "/";
 
     @Inject
@@ -38,7 +38,7 @@ public class ConfigFileReader {
     ObjectMapper yamlObjectMapper;
 
     public Object getConfigObject(GitHub gitHub, String repository, String path, Class<?> type) {
-        return readConfigFile(gitHub, repository, getFilePath(path.trim()), type);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private Object readConfigFile(GitHub gitHub, String repository, String fullPath, Class<?> type) {
@@ -46,19 +46,13 @@ public class ConfigFileReader {
         if (contentOptional.isEmpty()) {
             return null;
         }
-
         String content = contentOptional.get();
-
         if (matchExtensions(fullPath, TEXT_EXTENSIONS) && !String.class.equals(type)) {
-            throw new IllegalArgumentException(
-                    "Text extensions (" + String.join(", ", TEXT_EXTENSIONS) + ") only support String: " + fullPath
-                            + " required type " + type.getName());
+            throw new IllegalArgumentException("Text extensions (" + String.join(", ", TEXT_EXTENSIONS) + ") only support String: " + fullPath + " required type " + type.getName());
         }
-
         if (String.class.equals(type)) {
             return content;
         }
-
         try {
             ObjectMapper objectMapper = getObjectMapper(fullPath);
             return objectMapper.readValue(content, type);
@@ -90,11 +84,9 @@ public class ConfigFileReader {
         if (path.contains(PARENT_DIRECTORY)) {
             throw new IllegalArgumentException("Config file paths containing '..' are not accepted: " + path);
         }
-
         if (path.startsWith(ROOT_DIRECTORY)) {
             return path.substring(1);
         }
-
         return DEFAULT_DIRECTORY + path;
     }
 }
